@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!--<meta http-equiv="refresh" content="0.5" > -->
+        <meta name="viewport" content="height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <script src="Text.js"></script>
+        <script src="regulars.js"></script>
+
+    <title>Regularle — немного автоматизации для корректуры</title>
+    <meta name="keywords" content="корректура, русский язык, запятые">
+    <meta name="robots" content="index, follow">
+
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106571487', 'ym');
+
+        ym(106571487, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106571487" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    </head>
+    <body id = "body" style="height:100%;width:100%" onload="load()">
+      <div class="container">
+        <h1>Regularle</h1>
+        <p>Введите текст:</p>
+        <textarea onchange="count()" oninput="count()" rows="25" style="height:50%;width:100%" id="text"></textarea>
+         <div class="dropdown-section">
+            <div id="counter"></div>
+            <div class="dropdown-group">
+                <label class="dropdown-label" for="dash-select">Тире:</label>
+                <select class="dropdown" id="dash-select" onchange="setDash()">
+                    <option value="–">короткое</option>
+                    <option selected value="—">длинное</option>
+                </select>
+            </div>
+            
+            <div class="dropdown-group">
+                <label class="dropdown-label" for="quotes-select">Кавычки:</label>
+                <select class="dropdown" id="quotes-select" onchange="setQuotes()">
+                    <option selected value="елочки">«»</option>
+                    <option value="лапки">„“</option>
+                    <option value="одинарные">''</option>
+                    <option value="двойные">""</option>
+                </select>
+            </div>
+        </div>
+        <p>Выберите, что будем делать:</p>
+      
+        <div class="button-rows">
+            <div class="row row-1">
+                    <button class="button" onclick="hyphensToDashes()">Дефисы в тире</button>
+                    <button class="button" onclick="adjustDash()">Тире нужной длины</button>
+                    <button class="button" onclick="trimExtraSpaces()">Убрать лишние пробелы</button>
+                    <button class="button" onclick="fixQuotes()">Исправить кавычки</button>
+                    <button class="button" onclick="fixAroundQuotes()">Исправить знаки вокруг кавычек</button>
+                    
+            </div>
+            
+            <div class="row row-2">
+                    <button class="button" onclick="fixSpacesAround()">Исправить пробелы</button>
+                    <button class="button" onclick="fixDots()">Исправить точки</button>
+                    <button class="button" onclick="fixCapitalLetters()">Расставить большие буквы</button>
+                    <button class="button" onclick="listToList()">1) а -> 1. А</button>
+                    <button class="button" onclick="fixSpeechRemarks()">Исправить прямую речь</button>
+                    
+            </div>
+            
+            <!--<div class="row row-3">
+                    <button class="button">Like</button>
+                    <button class="button">Comment</button>
+                    <button class="button">Follow</button>
+                    <button class="button">Report</button>
+                    
+            </div>-->
+        </div>
+       
+    </body>
+    
+</html>
